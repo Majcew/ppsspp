@@ -1,5 +1,5 @@
 # First stage
-FROM alpine:latest
+FROM alpine:3.18.3
 
 COPY . /src
 
@@ -20,7 +20,7 @@ RUN cd src/ffmpeg && ./linux_x86-64.sh
 RUN cd src && ./b.sh --headless
 
 # Second stage
-FROM alpine:latest
+FROM alpine:3.18.3
 
 # Install required dependencies to make headless to work
 RUN apk add --no-cache sdl2 libstdc++ glu-dev
